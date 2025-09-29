@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Игровой портал</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="status-wrapper">
+    <div class="win-block">
+      <div class="status-line">
+        🟢 Онлайн: <span class="online-count" id="onlineCount">...</span>
+      </div>
+
+      <div class="stars" id="stars"></div>
+
+      <div class="language-selection">
+        <div class="language-option" onclick="changeLanguage('ru')">
+          <img src="languages/ru.png" alt="Русский" />
+        </div>
+        <div class="language-option" onclick="changeLanguage('en')">
+          <img src="languages/en.png" alt="English" />
+        </div>
+        <div class="language-option" onclick="changeLanguage('hi')">
+          <img src="languages/in.png" alt="हिंदी" />
+        </div>
+        <div class="language-option" onclick="changeLanguage('br')">
+          <img src="languages/br.png" alt="Português (BR)" />
+        </div>
+        <div class="language-option" onclick="changeLanguage('es')">
+          <img src="languages/Mexico.png" alt="Español" />
+        </div>
+        
+      </div>
+
+      <div class="winners-section">
+        <h2>Последние выигрыши</h2>
+        <div id="winnerContainer"></div>
+      </div>
+
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Поиск игры..." oninput="filterGames()" />
+      </div>
+
+      <div class="games-container" id="gamesContainer">
+        <div class="game-card" data-title="Gates Of Olympus">
+          <img src="Games/gates-of-olympus.jpg" alt="Gates Of Olympus" />
+          <h3 class="game-title">Gates Of Olympus</h3>
+          <a href="Olympus/index.html" class="play-button">Играть</a>
+        </div>
+        <div class="game-card" data-title="Gates Of Olympus 1000">
+          <img src="Games/gates-of-olympus-1000.jpg" alt="Gates Of Olympus 1000" />
+          <h3 class="game-title">Gates Of Olympus 1000</h3>
+          <a href="Olympus-1000/index.html" class="play-button">Играть</a>
+        </div>
+        <div class="game-card" data-title="Sugar Rush 1000">
+          <img src="Games/sugar-rush-1000.jpg" alt="Sugar Rush 1000" />
+          <h3 class="game-title">Sugar Rush 1000</h3>
+          <a href="Sugar-1000/index.html" class="play-button">Играть</a>
+        </div>
+        <div class="game-card" data-title="Ze Zeuz">
+          <img src="Games/Ze-zeuz.jpg" alt="Ze Zeuz" />
+          <h3 class="game-title">Ze Zeuz</h3>
+          <a href="Ze-Zeuz/index.html" class="play-button">Играть</a>
+        </div>
+                <div class="game-card" data-title="Le Bandit">
+          <img src="Le-bandit/photo_2025-09-22_19-52-30.jpg" alt="Le Bandit" />
+          <h3 class="game-title">Le Bandit</h3>
+          <a href="Le-bandit/index.html" class="play-button">Играть</a>
+        </div>
+                <div class="game-card" data-title="Zevs vs Hades">
+          <img src="Zevs-vs-hades/photo_2025-09-23_20-42-35.jpg" alt="Zevs vs Hades" />
+          <h3 class="game-title">Zevs vs Hades</h3>
+          <a href="Zevs-vs-hades/index.html" class="play-button">Играть</a>
+        </div>
+                <div class="game-card" data-title="Sun of Egypt 3">
+          <img src="sun-of-egypt-3/sun-of-egypt-3-logo_218_1811.png" alt="Sun of Egypt 3" />
+          <h3 class="game-title">Sun of Egypt 3</h3>
+          <a href="sun-of-egypt-3/index.html" class="play-button">Играть</a>
+        </div>
+                        <div class="game-card" data-title="Pirates Pub">
+          <img src="pirates-pub/68a592ce74e09_1755681486-225x225.jpeg" alt="Pirates Pub" />
+          <h3 class="game-title">Pirates Pub</h3>
+          <a href="pirates-pub/index.html" class="play-button">Играть</a>
+        </div>
+                                <div class="game-card" data-title="Santa Mummy">
+          <img src="santa-mummy/3218f9da972097d4e435ebdba71e359e.94f21b45a478b2a68b0eefceeca9dba9.png" alt="Santa Mummy" />
+          <h3 class="game-title">Santa Mummy</h3>
+          <a href="santa-mummy/index.html" class="play-button">Играть</a>
+        </div>
+                                        <div class="game-card" data-title="Mummyland Treasures">
+          <img src="Mummyland Treasures/07a89f8ceda6129ea31cca673c692e0d_.jpg" alt="Mummyland Treasures" />
+          <h3 class="game-title">Mummyland Treasures</h3>
+          <a href="Mummyland Treasures/index.html" class="play-button">Играть</a>
+        </div>
+                                                <div class="game-card" data-title="Panda Luck">
+          <img src="Panda-Luck/photo_2025-09-29_17-54-06.jpg" alt="Panda Luck" />
+          <h3 class="game-title">Panda Luck</h3>
+          <a href="Panda-Luck/index.html" class="play-button">Играть</a>
+        </div>
+                                                       <div class="game-card" data-title="Luck of Tiger">
+          <img src="Luck-of-Tiger/images.jpg" alt="Luck of Tiger" />
+          <h3 class="game-title">Luck of Tiger</h3>
+          <a href="Luck-of-Tiger/index.html" class="play-button">Играть</a>
+        </div>
+                                                               <div class="game-card" data-title="Fruit Party">
+          <img src="Fruit-Party/photo_2025-09-29_18-11-37.jpg" alt="Fruit Party" />
+          <h3 class="game-title">Fruit Party</h3>
+          <a href="Fruit-Party/index.html" class="play-button">Играть</a>
+        </div>
+                                                                       <div class="game-card" data-title="Gates of Olympus Super Scatter">
+          <img src="Gates-of-Olympus-Super-Scatter/photo_2025-09-29_18-14-45.jpg" alt="Gates of Olympus Super Scatter" />
+          <h3 class="game-title">Gates of Olympus Super Scatter</h3>
+          <a href="Gates-of-Olympus-Super-Scatter/index.html" class="play-button">Играть</a> 
+        </div>
+                                                                               <div class="game-card" data-title=" Sweet Bonanza Super Scatter">
+          <img src="Sweet-Bonanza-Super-Scatter/photo_2025-09-29_18-17-35.jpg" alt=" Sweet Bonanza Super Scatter" />
+          <h3 class="game-title"> Sweet Bonanza Super Scatter</h3>
+          <a href="Sweet-Bonanza-Super-Scatter/index.html" class="play-button">Играть</a> 
+        </div>
+                                                                                       <div class="game-card" data-title=" Sweet Bonanza">
+          <img src="Sweet-Bonanza/photo_2025-09-29_18-20-40.jpg" alt=" Sweet Bonanza" />
+          <h3 class="game-title"> Sweet Bonanza</h3>
+          <a href="Sweet-Bonanza/index.html" class="play-button">Играть</a> 
+        </div>
+                                                                                             <div class="game-card" data-title="Alien Fruits ">
+          <img src="Alien-Fruits/photo_2025-09-29_18-24-04.jpg" alt="Alien Fruits" />
+          <h3 class="game-title">Alien Fruits </h3>
+          <a href="Alien-Fruits/index.html" class="play-button">Играть</a> 
+        </div>
+                                                                                                   <div class="game-card" data-title="Madame Destiny ">
+          <img src="Madame-Destiny/photo_2025-09-29_18-28-23.jpg" alt="Madame Destiny" />
+          <h3 class="game-title">Madame Destiny</h3>
+          <a href="Madame-Destiny/index.html" class="play-button">Играть</a> 
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const translations = {
+      ru: {
+        play: "Играть",
+        searchPlaceholder: "Поиск игры..."
+      },
+      en: {
+        play: "Play",
+        searchPlaceholder: "Search game..."
+      },
+      hi: {
+        play: "खेलें",
+        searchPlaceholder: "खेल खोजें..."
+      },
+      br: {
+        play: "Jogar",
+        searchPlaceholder: "Buscar jogo..."
+      },
+      es: {
+        play: "Jugar",
+        searchPlaceholder: "Buscar juego..."
+      }
+    };
+
+    let currentLang = 'ru';
+
+    function changeLanguage(lang) {
+      currentLang = lang;
+      const t = translations[lang];
+      document.querySelectorAll('.play-button').forEach(el => {
+        el.textContent = t.play;
+      });
+      document.getElementById('searchInput').placeholder = t.searchPlaceholder;
+    }
+
+    function createStars() {
+      const stars = document.getElementById('stars');
+      const count = 320;
+      for (let i = 0; i < count; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.left = `${Math.random() * window.innerWidth}px`;
+        star.style.top = `${Math.random() * window.innerHeight}px`;
+        const size = Math.random() * 3 + 1;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.animationDelay = `${Math.random() * 2}s`;
+        stars.appendChild(star);
+      }
+    }
+
+    function filterGames() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      document.querySelectorAll('.game-card').forEach(card => {
+        const title = card.getAttribute('data-title').toLowerCase();
+        card.style.display = title.includes(input) ? 'flex' : 'none';
+      });
+    }
+
+    const onlineCountEl = document.getElementById('onlineCount');
+    let onlineCount = Math.floor(Math.random() * (500 - 120 + 1)) + 120;
+    onlineCountEl.textContent = onlineCount;
+    setInterval(() => {
+      const change = Math.floor(Math.random() * 7) - 3;
+      onlineCount = Math.max(120, Math.min(500, onlineCount + change));
+      onlineCountEl.textContent = onlineCount;
+    }, 3000);
+
+    const winnerContainer = document.getElementById('winnerContainer');
+    const winners = [
+      { name: 'Artur', amount: 1600000, game: 'Gates Of Olympus' },
+      { name: 'Margo', amount: 1000000, game: 'Sugar Rush 1000'},
+      { name: 'Ilua', amount: 500000, game: 'Ze Zeuz' },
+      { name: 'Lurker ', amount: 250000, game: 'Le Bandit' },
+      { name: 'Hateks', amount: 6780000, game: 'Sweet Bonanza' },
+      { name: 'Arakul', amount: 1320000, game: 'Alien Fruits' },
+      { name: 'Rustam', amount: 1200000, game: 'Santa Mummy' },
+      { name: 'Kirra', amount: 1000000, game: 'Panda Luck' },
+      { name: 'Jordan', amount: 870000, game: 'Luck of Tiger' },
+      { name: 'SuperPro1st0', amount: 540000, game: 'Ze Zeuz' },
+      { name: 'Kirill', amount: 300000, game: 'Le Bandit' },
+      { name: 'Vladislav', amount: 150000, game: 'Fruit Party' },
+      { name: 'Sasha', amount: 95000, game: 'Sun of Egypt 3' },
+      { name: 'DogKing', amount: 67000, game: 'Santa Mummy' },
+      { name: 'BustPoll', amount: 880000, game: 'Panda Luck' },
+      { name: 'SmokeWin', amount: 500000, game: 'Luck of Tiger' },
+      { name: 'Elisaveta', amount: 450000, game: 'Fruit Party' },
+      { name: 'Kupma', amount: 750000, game: 'Ze Zeuz' },
+      { name: 'David', amount: 98000, game: 'Le Bandit' },
+      { name: 'LokStar', amount: 65000, game: 'Sun of Egypt 3' },
+      { name: 'Evdia', amount: 56000, game: 'Santa Mummy' },
+      { name: 'Dan', amount: 51000, game: 'Fruit Party' }
+];
+let lastIndex = -1;
+
+function showWinner() {
+  let newIndex;
+  do {
+    newIndex = Math.floor(Math.random() * winners.length);
+  } while (newIndex === lastIndex);
+
+  lastIndex = newIndex;
+  const w = winners[newIndex];
+
+  winnerContainer.innerHTML = `
+    <div class="winner-card">
+      <div class="winner-info">
+        <strong>${w.name}</strong> выиграл 
+        <span class="amount">₽${w.amount.toLocaleString('ru-RU')}</span> в 
+        <span class="game-name">${w.game}</span>
+      </div>
+    </div>
+  `;
+}
+
+    showWinner();
+    setInterval(showWinner, 30000);
+
+    createStars();
+    changeLanguage(currentLang);
+  </script>
+</body>
+</html>

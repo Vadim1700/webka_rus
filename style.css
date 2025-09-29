@@ -1,0 +1,338 @@
+/* Общие стили */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000;
+  color: #fff;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Звезды */
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  animation: twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+/* Языки */
+.language-selection {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px;
+}
+
+.language-option img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.language-option img:hover {
+  transform: scale(1.1);
+}
+
+/* Поиск */
+.search-container {
+  display: flex;
+  justify-content: center;
+  padding: 0px 16px 24px;
+}
+
+.search-container input {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+/* Игры */
+.games-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: px 16px 32px;
+}
+
+.game-card {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* равномерное распределение */
+  align-items: stretch;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+  height: 100%; /* одинаковая высота карточек */
+}
+
+/* Обёртка для содержимого */
+.card-content {
+  flex-grow: 1;
+}
+
+/* Изображение */
+.game-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  height: auto; /* сохраняем пропорции */
+  object-fit: contain; /* не обрезаем */
+}
+
+/* Заголовок */
+.game-title {
+  font-size: 14px;
+  margin: 8px 0;
+  color: #fff;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Кнопка */
+.play-button {
+  background-color: #ff9800;
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin-top: 1px; /* прижимаем кнопку вниз */
+}
+
+
+.play-button:hover {
+  background-color: #ffa726;
+}
+
+/* Адаптация под маленькие экраны */
+@media (max-width: 480px) {
+  .games-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .language-selection {
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .search-container input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .game-title {
+    font-size: 13px;
+  }
+
+  .play-button {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+}
+.win-block {
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+.status-line {
+  font-size: 18px;
+  color: #2ecc71;
+  margin-bottom: 15px;
+}
+
+.online-count {
+  font-weight: bold;
+}
+
+.winner-card {
+  display: flex;
+  align-items: center;
+  background: #f0f0f0;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  flex-wrap: wrap;
+    max-width: 100%;
+  word-wrap: break-word;
+  white-space: normal;
+  box-sizing: border-box;
+}
+
+.game-icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+    max-width: 100%;
+  word-wrap: break-word;
+  white-space: normal;
+  box-sizing: border-box;
+}
+
+.winner-info {
+  flex: 1;
+  font-size: 16px;
+    max-width: 100%;
+  word-wrap: break-word;
+  white-space: normal;
+  box-sizing: border-box;
+}
+
+.amount {
+  color: #e67e22;
+  font-weight: bold;
+    max-width: 100%;
+  word-wrap: break-word;
+  white-space: normal;
+  box-sizing: border-box;
+}
+
+.game-name {
+  color: #3498db;
+  font-style: italic;
+    max-width: 100%;
+  word-wrap: break-word;
+  white-space: normal;
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  .winner-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .game-icon {
+    margin-bottom: 10px;
+  }
+
+  .winner-info {
+    font-size: 14px;
+  }
+
+  .status-line {
+    font-size: 16px;
+  }
+}
+/* Общие стили */
+.winners-section {
+  background-color: #1c1c1c;
+  padding: 10px 15px;
+  max-width: 360px; /* уменьшили ширину */
+  margin: 0 auto 10px auto; /* чуть выше */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+
+.winners-section h2 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.winner-card {
+  display: inline-block;
+  background: #2a2a2a;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.winner-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #f0f0f0;
+}
+
+.winner-info img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.amount {
+  color: #f39c12;
+  font-weight: bold;
+}
+
+.game-name {
+  color: #3498db;
+  font-style: italic;
+  display: inline-flex;
+  align-items: center;
+}
+
+.game-icon {
+  width: 16px;
+  height: 16px;
+  margin-left: 6px;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 480px) {
+  .winners-section {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 10px;
+  }
+
+  .winner-card {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 10px;
+    width: 250px; /* фиксированная ширина для прокрутки */
+  }
+
+  .winner-info {
+    flex-direction: row;
+    align-items: center;
+    font-size: 13px;
+  }
+
+  .winner-info img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .game-icon {
+    margin-left: 6px;
+    margin-bottom: 0;
+  }
+}
