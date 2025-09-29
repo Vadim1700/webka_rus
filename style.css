@@ -173,6 +173,16 @@ body {
 .online-count {
   font-weight: bold;
 }
+.win-line {
+  font-size: 18px;
+  color: #2ecc71;
+  margin-bottom: 10px;
+  margin-left: 300px; /* немного правее */
+  margin-top: -39px;
+}
+
+
+
 
 .winner-card {
   display: flex;
