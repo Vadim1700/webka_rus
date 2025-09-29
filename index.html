@@ -12,6 +12,12 @@
       <div class="status-line">
         🟢 Онлайн: <span class="online-count" id="onlineCount">...</span>
       </div>
+<div>
+<div class="win-line">
+  💰 Общий выигрыш: <span id="totalWin">...</span> USD
+</div>
+</div >
+
 
       <div class="stars" id="stars"></div>
 
@@ -197,14 +203,44 @@
       });
     }
 
-    const onlineCountEl = document.getElementById('onlineCount');
-    let onlineCount = Math.floor(Math.random() * (500 - 120 + 1)) + 120;
+
+  const onlineCountEl = document.getElementById('onlineCount');
+
+  function getInitialOnlineCount() {
+    return Math.floor(Math.random() * (500 - 120 + 1)) + 120;
+  }
+
+  function updateOnlineBase() {
+    const newBase = getInitialOnlineCount();
+    localStorage.setItem('onlineBase', newBase);
+    localStorage.setItem('onlineLastUpdate', Date.now());
+    return newBase;
+  }
+
+  function getOnlineBase() {
+    const saved = localStorage.getItem('onlineBase');
+    const lastUpdate = localStorage.getItem('onlineLastUpdate');
+    const now = Date.now();
+    const tenMinutes = 10 * 60 * 1000;
+
+    if (!saved || !lastUpdate || now - lastUpdate > tenMinutes) {
+      return updateOnlineBase();
+    }
+
+    return parseInt(saved, 10);
+  }
+
+  let onlineBase = getOnlineBase();
+  let onlineCount = onlineBase;
+  onlineCountEl.textContent = onlineCount;
+
+  setInterval(() => {
+    const change = Math.floor(Math.random() * 7) - 3; // -3 to +3
+    onlineCount = Math.max(120, Math.min(500, onlineCount + change));
     onlineCountEl.textContent = onlineCount;
-    setInterval(() => {
-      const change = Math.floor(Math.random() * 7) - 3;
-      onlineCount = Math.max(120, Math.min(500, onlineCount + change));
-      onlineCountEl.textContent = onlineCount;
-    }, 3000);
+  }, 3000);
+
+
 
     const winnerContainer = document.getElementById('winnerContainer');
     const winners = [
@@ -258,6 +294,57 @@ function showWinner() {
 
     createStars();
     changeLanguage(currentLang);
+
+
+  function getRandomWinAmount() {
+    const minBYN = 8000;
+    const maxBYN = 40000;
+    return Math.floor(Math.random() * (maxBYN - minBYN + 1)) + minBYN;
+  }
+
+  function convertToUSD(bynAmount) {
+    const exchangeRate = 3.2; // примерный курс BYN → USD
+    return bynAmount / exchangeRate;
+  }
+
+
+
+  function getRandomWinAmountUSD() {
+    const minUSD = 8000;
+    const maxUSD = 40000;
+    return Math.floor(Math.random() * (maxUSD - minUSD + 1)) + minUSD;
+  }
+
+  function updateWinAmount() {
+    const winElement = document.getElementById('totalWin');
+    if (!winElement) return;
+
+    let usdAmount = localStorage.getItem('totalWinUSD');
+    const lastUpdate = localStorage.getItem('lastWinUpdate');
+    const now = Date.now();
+    const oneDay = 86400 * 1000; // 24 часа в миллисекундах
+
+    const shouldUpdate = !usdAmount || !lastUpdate || now - lastUpdate > oneDay;
+
+    if (shouldUpdate) {
+      usdAmount = getRandomWinAmountUSD();
+      localStorage.setItem('totalWinUSD', usdAmount);
+      localStorage.setItem('lastWinUpdate', now);
+    }
+
+    winElement.textContent = Number(usdAmount).toLocaleString('en-US');
+  }
+
+  updateWinAmount();
+
+
+
+
+
+
+    
   </script>
+  
 </body>
+
 </html>
