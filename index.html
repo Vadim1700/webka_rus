@@ -244,28 +244,28 @@
 
     const winnerContainer = document.getElementById('winnerContainer');
     const winners = [
-      { name: 'Artur', amount: 1600000, game: 'Gates Of Olympus' },
-      { name: 'Margo', amount: 1000000, game: 'Sugar Rush 1000'},
-      { name: 'Ilua', amount: 500000, game: 'Ze Zeuz' },
-      { name: 'Lurker ', amount: 250000, game: 'Le Bandit' },
-      { name: 'Hateks', amount: 6780000, game: 'Sweet Bonanza' },
-      { name: 'Arakul', amount: 1320000, game: 'Alien Fruits' },
-      { name: 'Rustam', amount: 1200000, game: 'Santa Mummy' },
-      { name: 'Kirra', amount: 1000000, game: 'Panda Luck' },
-      { name: 'Jordan', amount: 870000, game: 'Luck of Tiger' },
-      { name: 'SuperPro1st0', amount: 540000, game: 'Ze Zeuz' },
-      { name: 'Kirill', amount: 300000, game: 'Le Bandit' },
-      { name: 'Vladislav', amount: 150000, game: 'Fruit Party' },
-      { name: 'Sasha', amount: 95000, game: 'Sun of Egypt 3' },
-      { name: 'DogKing', amount: 67000, game: 'Santa Mummy' },
-      { name: 'BustPoll', amount: 880000, game: 'Panda Luck' },
-      { name: 'SmokeWin', amount: 500000, game: 'Luck of Tiger' },
-      { name: 'Elisaveta', amount: 450000, game: 'Fruit Party' },
-      { name: 'Kupma', amount: 750000, game: 'Ze Zeuz' },
-      { name: 'David', amount: 98000, game: 'Le Bandit' },
-      { name: 'LokStar', amount: 65000, game: 'Sun of Egypt 3' },
-      { name: 'Evdia', amount: 56000, game: 'Santa Mummy' },
-      { name: 'Dan', amount: 51000, game: 'Fruit Party' }
+      { name: 'Artur', amount: 16000, game: 'Gates Of Olympus' },
+      { name: 'Margo', amount: 10000, game: 'Sugar Rush 1000'},
+      { name: 'Ilua', amount: 50000, game: 'Ze Zeuz' },
+      { name: 'Lurker ', amount: 25000, game: 'Le Bandit' },
+      { name: 'Hateks', amount: 67800, game: 'Sweet Bonanza' },
+      { name: 'Arakul', amount: 13200, game: 'Alien Fruits' },
+      { name: 'Rustam', amount: 12000, game: 'Santa Mummy' },
+      { name: 'Kirra', amount: 10000, game: 'Panda Luck' },
+      { name: 'Jordan', amount: 36800, game: 'Luck of Tiger' },
+      { name: 'SuperPro1st0', amount: 5400, game: 'Ze Zeuz' },
+      { name: 'Kirill', amount: 37680, game: 'Le Bandit' },
+      { name: 'Vladislav', amount: 18980, game: 'Fruit Party' },
+      { name: 'Sasha', amount: 9504, game: 'Sun of Egypt 3' },
+      { name: 'DogKing', amount: 6700, game: 'Santa Mummy' },
+      { name: 'BustPoll', amount: 23000, game: 'Panda Luck' },
+      { name: 'SmokeWin', amount: 56000, game: 'Luck of Tiger' },
+      { name: 'Elisaveta', amount: 7890, game: 'Fruit Party' },
+      { name: 'Kupma', amount: 45000, game: 'Ze Zeuz' },
+      { name: 'David', amount: 34800, game: 'Le Bandit' },
+      { name: 'LokStar', amount: 21800, game: 'Sun of Egypt 3' },
+      { name: 'Evdia', amount: 46000, game: 'Santa Mummy' },
+      { name: 'Dan', amount: 5800, game: 'Fruit Party' }
 ];
 let lastIndex = -1;
 
@@ -282,7 +282,7 @@ function showWinner() {
     <div class="winner-card">
       <div class="winner-info">
         <strong>${w.name}</strong> выиграл 
-        <span class="amount">₽${w.amount.toLocaleString('ru-RU')}</span> в 
+        <span class="amount">$${w.amount.toLocaleString('ru-RU')}</span> в 
         <span class="game-name">${w.game}</span>
       </div>
     </div>
@@ -348,4 +348,3 @@ function showWinner() {
 </body>
 
 </html>
-
